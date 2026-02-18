@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+
+<h1>Code</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input name="code" placeholder="Enter access code" required>
+    <button>Enter Game</button>
+</form>
+
+<p style="color:red;">{{ error }}</p>
+
+</body>
+</html>

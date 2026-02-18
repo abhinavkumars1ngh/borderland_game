@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    color: white;
+    text-align: center;
+
+    /* Background image */
+    background-image: url("/static/game/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    overflow-x: hidden;
+}
+
+/* Optional dark overlay so text stays readable */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Scanline animation (kept for later use) */
+@keyframes scanlines {
+    from { transform: translateY(0); }
+    to { transform: translateY(50px); }
+}
+
+
+/* Buttons */
+button {
+    background: red;
+    color: black;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Results */
+.lost {
+    color: crimson;
+    font-size: 40px;
+}
+
+.safe {
+    color: lime;
+}
+
+
+/* Tables */
+table {
+    margin: auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid red;
+    padding: 10px;
+}
+
+
+/* Floating stickers */
+.sticker {
+    position: fixed;
+    bottom: -50px;
+    font-size: 32px;
+    opacity: 0.8;
+    animation: floatUp linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 0.9;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}

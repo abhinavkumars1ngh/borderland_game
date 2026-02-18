@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+
+<h1>MASTER HOST PANEL</h1>
+
+<h2>Average: {{ average }}</h2>
+
+<table>
+<tr>
+<th>Name</th><th>Number</th><th>Distance</th>
+</tr>
+
+{% for n, num, diff in entries %}
+<tr>
+<td>{{ n }}</td>
+<td>{{ num }}</td>
+<td>{{ diff }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Select Loser</h3>
+
+<form method="post" action="/choose/">
+{% csrf_token %}
+<select name="loser">
+{% for n, num, diff in entries %}
+<option value="{{ n }}">{{ n }}</option>
+{% endfor %}
+</select>
+<button>Select</button>
+</form>
+
+<form method="post" action="/reset/">
+{% csrf_token %}
+<button>New Round</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+    <script src="{% static 'game/stickers.js' %}"></script>
+</head>
+<body>
+
+<h1>Enter the number</h1>
+<h2>{{ name }}</h2>
+
+{% if loser %}
+    {% if loser == name %}
+        <h2 class="lost">YOU LOST ☠️</h2>
+    {% else %}
+        <h2 class="safe">YOU ARE SAFE</h2>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="/submit/">
+    {% csrf_token %}
+    <input type="hidden" name="name" value="{{ name }}">
+    <input type="number" name="number" min="0" max="99" required>
+    <button onclick="giveSticker()">Submit</button>
+</form>
+
+<div id="stickers"></div>
+
+</body>
+</html>

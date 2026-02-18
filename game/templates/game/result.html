@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'game/style.css' %}">
+</head>
+<body>
+
+<h1>Borderland Result</h1>
+
+<h2>Round Average: {{ average }}</h2>
+
+{% if loser == name %}
+    <h2 class="lost">YOU LOST ☠️</h2>
+{% else %}
+    <h2 class="safe">YOU SURVIVED 🎴</h2>
+{% endif %}
+
+<a href="/?name={{ name }}">
+    <button>Next Round</button>
+</a>
+
+</body>
+</html>
