@@ -15,24 +15,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Optional dark overlay so text stays readable */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    pointer-events: none;
-    z-index: -1;
-}
 
-/* Scanline animation (kept for later use) */
 @keyframes scanlines {
     from { transform: translateY(0); }
     to { transform: translateY(50px); }
 }
 
 
-/* Buttons */
+
 button {
     background: red;
     color: black;
